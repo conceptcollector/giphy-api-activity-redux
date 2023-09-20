@@ -1,7 +1,12 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import './App.css';
 
 function App() {
+
+  const dispatch = useDispatch();
+  const gif = useSelector((store) => store.gif);
   // Renders the entire app on the DOM
   return (
     <div>
