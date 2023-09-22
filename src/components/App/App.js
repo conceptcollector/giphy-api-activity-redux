@@ -1,12 +1,21 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import axios from 'axios';
 
 import './App.css';
 
 function App() {
 
-  const dispatch = useDispatch();
-  const gif = useSelector((store) => store.gif);
+  const [randomGif, setRandomGif] = useState([]);
+
+  const fetchRandomGif = () => {
+    axios({
+      type: 'GET',
+      url: '/random'
+    }).then((response) => {
+      setRandomGif(response.data);
+    })
+  }
+
   // Renders the entire app on the DOM
   return (
     <div>
@@ -15,6 +24,10 @@ function App() {
       </header>
       
       <p>Results go here</p>
+      <button onClick={fetchRandomGif}>Gimme Gif!</button>
+      <div>
+        {setRandomGif}
+      </div>
     </div>
   );
 }
