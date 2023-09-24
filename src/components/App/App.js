@@ -9,9 +9,11 @@ function App() {
 
   const fetchRandomGif = () => {
     axios({
-      type: 'GET',
+      method: 'GET',
       url: '/random'
-    }).then((response) => {
+    }
+    console.log('Bombs away');
+    ).then((response) => {
       setRandomGif(response.data);
     })
   }
@@ -26,7 +28,7 @@ function App() {
       <p>Results go here</p>
       <button onClick={fetchRandomGif}>Gimme Gif!</button>
       <div>
-        {setRandomGif}
+        {randomGif}
       </div>
     </div>
   );
