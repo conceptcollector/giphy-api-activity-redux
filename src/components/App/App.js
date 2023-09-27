@@ -11,9 +11,7 @@ function App() {
     axios({
       method: 'GET',
       url: '/random'
-    },
-    console.log('Bombs away')
-    ).then((response) => {
+    }).then((response) => {
       setRandomGif(response.data);
     })
   }

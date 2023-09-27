@@ -6,7 +6,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 // Provider allows us to use redux within our react app
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
-import {put, takeLatest} from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 // Reducer that holds our results
