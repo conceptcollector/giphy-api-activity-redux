@@ -11,8 +11,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json()); // needed for angular requests
 app.use(express.static('build'));
 
-/** ---------- ROUTES ---------- **/
-app.use('/random', randomRouter);
+axios({
+    method: 'GET',
+    url: `api.giphy.com/v1/gifs/random?api_key=${process.env.GIPHY_API_KEY}&random_id=e826c9fc5c929e0d6c6d423841a282aa`
+}).then((response) => {
+    console.log(response.data);
+    res.send(response.data);
+})
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
